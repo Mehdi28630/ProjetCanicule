@@ -1,0 +1,14 @@
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\Plan_Canicule.exe.config
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\Plan_Canicule.exe
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\Plan_Canicule.pdb
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\MySql.Data.dll
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\MySql.Web.dll
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.csprojAssemblyReference.cache
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.Form1.resources
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.Form2.resources
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.Properties.Resources.resources
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.csproj.GenerateResource.cache
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.csproj.CoreCompileInputs.cache
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.csproj.CopyComplete
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.exe
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\obj\Debug\Plan_Canicule.pdb
