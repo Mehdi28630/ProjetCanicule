@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Plan_Canicule.exe" version="1.0.0.1" publicKeyToken="41f6e004fc96d135" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Plan_Canicule" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Plan_Canicule.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Options de manifeste UAC
+          Pour changer le niveau du contrôle de compte d'utilisateur Windows, remplacez le
+          nœud requestedExecutionLevel par l'une des propositions suivantes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Pour utiliser la virtualisation des fichiers et du Registre afin d'assurer
+         une compatibilité ascendante, supprimez le nœud requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="758784">
+      <assemblyIdentity name="MySql.Data" version="8.0.16.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>enIKvGfVmmAebqrmEOH6AOmtHcgqCjCVa8Wzgp3ocew=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Web.dll" size="162304">
+      <assemblyIdentity name="MySql.Web" version="8.0.16.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>QvsfxSQkQ7e5g0+d/kAQPPPKDk33nvrKZLq2Q1tzuHU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Plan_Canicule.exe" size="38368">
+      <assemblyIdentity name="Plan_Canicule" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>mNo3xd46YF3/eg2cX9O9DKChgcdHQPipDe6+WdAPkv8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Plan_Canicule.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=LAPTOP-15FI8IGG\mehdi" issuerKeyHash="0b33ab74fe124576eade4b6e0f6f94560038394f" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>JSB9s9XtgtOiHPCUSIIcQlqjT8hRRzY+rTsIYAFe+xw=</DigestValue></Reference></SignedInfo><SignatureValue>C+nCe2ffw5JC09ACENooo+rJyWugS4yZ0yPQq+qjN0cmDI2L5i8Oz25IziM37/duOi0oi5wCOjefCYofiFulLH+xhSaG4BdwKFUgNUMTKLyDPwxSw/kiM0tU0ocysTszSHU/SlQ2u9FUCzJyFGPInZxjlZn3aR2OAfcIbYLBdRI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>qaJD8MxaDEZ9Ao2yztFlRPSZDHdSdGYZSHIWmdjdZff815LjcxA0h5jP+Eipx5f7fSVpq/0C/RtcePqgVwsmCt46SYaHoNujGBzqzFDHpmR2+uQtAsDwzdlCMMbQv5ti0arXfKBCQjSxYsvQXqXGHG1x3xbdF7Cu2CaDyFKxhSU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="1cfb5e0160083bad3e364751c84fa35a421c824894f01ca2d382edd5b37d2025" Description="" Url=""><as:assemblyIdentity name="Plan_Canicule.exe" version="1.0.0.1" publicKeyToken="41f6e004fc96d135" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LAPTOP-15FI8IGG\mehdi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Tb2ODGFDShTfoo6Z4RRzhPv7VyHaARbMvmQQMN++dU4=</DigestValue></Reference></SignedInfo><SignatureValue>ZYerelJEUhwDIxTJ3eoxC1JUTx8lx/Z5mqNTGwW+RihTQByXM/M8qbRie1V31MyAaCVH8bD6AJRi1u0Dv5VnYvXo2en6RrWqzRgH/xoTI6U1OsX0CEmdz8D3zXwaPBY7rgzN8eloa/HPeAIHNQyEEPunOBJbQOLEPw8ApfvbaFY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>qaJD8MxaDEZ9Ao2yztFlRPSZDHdSdGYZSHIWmdjdZff815LjcxA0h5jP+Eipx5f7fSVpq/0C/RtcePqgVwsmCt46SYaHoNujGBzqzFDHpmR2+uQtAsDwzdlCMMbQv5ti0arXfKBCQjSxYsvQXqXGHG1x3xbdF7Cu2CaDyFKxhSU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQLlMzkSgKeYdMMvcu7j8nXzANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQAxADUARgBJADgASQBHAEcAXABtAGUAaABkAGkwHhcNMjEwNjA3MTIyMzMwWhcNMjIwNjA3MTgyMzMwWjA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQAxADUARgBJADgASQBHAEcAXABtAGUAaABkAGkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKmiQ/DMWgxGfQKNss7RZUT0mQx3UnRmGUhyFpnY3WX3/NeS43MQNIeYz/hIqceX+30laav9Av0bXHj6oFcLJgreOkmGh6Dboxgc6sxQx6ZkdvrkLQLA8M3ZQjDG0L+bYtGq13ygQkI0sWLL0F6lxhxtcd8W3Rewrtgmg8hSsYUlAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAonp8+iJnL8LtrHr+DqwaGCBD6JZ9kEhTT94CdCoqSyuQ1Om+C8astmXfN+3RzzBs4fu2xqnF+WxS2jTNzr4E4PKTehiypi/X4eBo0srQ+938/k/7YNf5gOydgnDXsALivJO9fmO0w7+auRG0yjiJZ7l2FZkd84S9rxdNahM6LXM=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
