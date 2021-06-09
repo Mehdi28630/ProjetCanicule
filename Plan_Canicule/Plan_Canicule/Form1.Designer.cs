@@ -71,6 +71,7 @@ namespace Plan_Canicule
             this.BoxConfirmer = new System.Windows.Forms.TextBox();
             this.LabelConfirmer = new System.Windows.Forms.Label();
             this.B_SupprimerContact = new System.Windows.Forms.Button();
+            this.B_ListeAppel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -300,7 +301,7 @@ namespace Plan_Canicule
             // 
             // BoxTel
             // 
-            this.BoxTel.Location = new System.Drawing.Point(509, 368);
+            this.BoxTel.Location = new System.Drawing.Point(519, 368);
             this.BoxTel.Name = "BoxTel";
             this.BoxTel.Size = new System.Drawing.Size(169, 26);
             this.BoxTel.TabIndex = 13;
@@ -310,7 +311,7 @@ namespace Plan_Canicule
             // LabelTel
             // 
             this.LabelTel.AutoSize = true;
-            this.LabelTel.Location = new System.Drawing.Point(552, 330);
+            this.LabelTel.Location = new System.Drawing.Point(567, 330);
             this.LabelTel.Name = "LabelTel";
             this.LabelTel.Size = new System.Drawing.Size(71, 20);
             this.LabelTel.TabIndex = 32;
@@ -324,7 +325,7 @@ namespace Plan_Canicule
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(499, 382);
+            this.dataGridView2.Size = new System.Drawing.Size(509, 382);
             this.dataGridView2.TabIndex = 33;
             this.dataGridView2.Visible = false;
             // 
@@ -494,9 +495,20 @@ namespace Plan_Canicule
             this.B_SupprimerContact.Visible = false;
             this.B_SupprimerContact.Click += new System.EventHandler(this.B_SupprimerContact_Click);
             // 
+            // B_ListeAppel
+            // 
+            this.B_ListeAppel.Location = new System.Drawing.Point(889, 38);
+            this.B_ListeAppel.Name = "B_ListeAppel";
+            this.B_ListeAppel.Size = new System.Drawing.Size(158, 91);
+            this.B_ListeAppel.TabIndex = 50;
+            this.B_ListeAppel.Text = "Liste des Appels";
+            this.B_ListeAppel.UseVisualStyleBackColor = true;
+            this.B_ListeAppel.Click += new System.EventHandler(this.B_ListeAppel_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1284, 688);
+            this.Controls.Add(this.B_ListeAppel);
             this.Controls.Add(this.B_SupprimerContact);
             this.Controls.Add(this.LabelConfirmer);
             this.Controls.Add(this.BoxConfirmer);
@@ -590,6 +602,7 @@ namespace Plan_Canicule
         private System.Windows.Forms.TextBox BoxConfirmer;
         private System.Windows.Forms.Label LabelConfirmer;
         private System.Windows.Forms.Button B_SupprimerContact;
+        private System.Windows.Forms.Button B_ListeAppel;
     }
 }
 

@@ -130,7 +130,7 @@ namespace Plan_Canicule
                 dataGridView1.Columns[12].Name = "Commentaire";
 
 
-                string commande = "select personne_a_risques.ID, SEXE, NOM, Prenom, (DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(`Date_Naissance`)), '%Y')+0) as Age, ADRESSE,  CODE_POSTAL, VILLE, NUMERO_TEL, SITUATION, RISQUE, appel.Date, appel.Commentaire from personne_a_risques left join appel on personne_a_risques.id = appel.ID_Personne ORDER BY RISQUE DESC;";
+                string commande = "select personne_a_risques.ID, SEXE, NOM, Prenom, (DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(`Date_Naissance`)), '%Y')+0) as Age, ADRESSE,  CODE_POSTAL, VILLE, NUMERO_TEL, SITUATION, RISQUE, dernierappel.Date, dernierappel.Commentaire from personne_a_risques left join dernierappel on personne_a_risques.id = dernierappel.ID_Personne ORDER BY RISQUE DESC;";
                 MySqlCommand CommandeAfficher = new MySqlCommand(commande, connexion); //commande sql pour afficher les resultats
 
                 MySqlDataReader reader; //recupere les resultats pour les affecter dans une variable et les afficher
@@ -213,10 +213,8 @@ namespace Plan_Canicule
                 dataGridView1.Columns[8].Name = "Num Tel à surveiller";
                 dataGridView1.Columns[9].Name = "Dernier Appel";
                 dataGridView1.Columns[10].Name = "Commentaire";
-                //dataGridView1.Columns[11].Name = "Dernier Appel";
                 string commande = "select contact.ID, contact.Nom, contact.Prenom, contact.QUALITE, contact.NUM_TELEPHONE, personne_a_risques.ID, personne_a_risques.NOM, personne_a_risques.PRENOM, personne_a_risques.NUMERO_TEL, appelc.DATE, appelc.Commentaire from contact left JOIN est_lie_a on contact.ID = est_lie_a.ID_CONTACT left JOIN personne_a_risques on est_lie_a.ID_Personne = personne_a_risques.ID left join appelc on contact.ID = appelc.ID_CONTACT";
                 MySqlCommand CommandeAfficher = new MySqlCommand(commande, connexion); //commande sql pour afficher les resultats
-
                 MySqlDataReader reader; //recupere les resultats pour les affecter dans une variable et les afficher
                 reader = CommandeAfficher.ExecuteReader();
                 if (reader.HasRows)
@@ -541,7 +539,7 @@ namespace Plan_Canicule
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand AjouterC = new MySqlCommand();
-                    AjouterC.CommandText = "insert into appel (ID, ID_PERSONNE, COMMENTAIRE, DATE) values (@id, @id, @commentaire, NOW()) ON DUPLICATE KEY UPDATE ID = ID, ID_PERSONNE = ID_PERSONNE, COMMENTAIRE = @commentaire, DATE=NOW()";
+                    AjouterC.CommandText = "BEGIN; INSERT INTO appel (ID_PERSONNE, COMMENTAIRE, DATE) VALUES(@id, @commentaire, NOW());  INSERT INTO dernierappel (ID, ID_personne, COMMENTAIRE, DATE)  VALUES(@id, @id, @commentaire, NOW()) ON DUPLICATE KEY UPDATE ID = ID, ID_PERSONNE = ID_PERSONNE, COMMENTAIRE = @commentaire, DATE=NOW(); COMMIT;";
                     AjouterC.Parameters.AddWithValue("@id", BoxID.Text);
                     AjouterC.Parameters.AddWithValue("@commentaire", Box_Commentaire.Text);
                     AjouterC.Connection = connexion;
@@ -572,7 +570,7 @@ namespace Plan_Canicule
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand AjouterC = new MySqlCommand();
-                    AjouterC.CommandText = "insert into appelC (ID, ID_Contact, COMMENTAIRE, DATE) values (@id, @id, @commentaire, NOW())ON DUPLICATE KEY UPDATE ID = ID, ID_CONTACT = ID_CONTACT, COMMENTAIRE = @commentaire, DATE=NOW();";
+                    AjouterC.CommandText = "insert into appelC (ID_Contact, COMMENTAIRE, DATE) values (@id, @commentaire, NOW());";
                     AjouterC.Parameters.AddWithValue("@id", BoxID.Text);
                     AjouterC.Parameters.AddWithValue("@commentaire", Box_Commentaire.Text);
                     AjouterC.Connection = connexion;
@@ -602,7 +600,7 @@ namespace Plan_Canicule
                 if (this.OpenConnection() == true)
                 {
                     MySqlCommand Supprimer = new MySqlCommand();
-                    Supprimer.CommandText = "delete personne_a_risques, contact, est_lie_a, appel, appelc from personne_a_risques left join est_lie_a on personne_a_risques.ID = est_lie_a.ID_PERSONNE left join contact on est_lie_a.ID_CONTACT= contact.ID left join appel on personne_a_risques.ID= appel.ID_PERSONNE left join appelc on contact.ID=appelc.ID_contact WHERE personne_a_risques.ID = @id;";
+                    Supprimer.CommandText = "delete personne_a_risques, contact, est_lie_a, appel, appelc, dernierappel from personne_a_risques left join est_lie_a on personne_a_risques.ID = est_lie_a.ID_PERSONNE left join contact on est_lie_a.ID_CONTACT= contact.ID left join appel on personne_a_risques.ID= appel.ID_PERSONNE left join appelc on contact.ID=appelc.ID_contact left join dernierappel on personne_a_risques.ID = dernierappel.ID_PERSONNE WHERE personne_a_risques.ID = @id;";
                     Supprimer.Parameters.AddWithValue("@id", BoxID.Text);
                     Supprimer.Connection = connexion;
                     Supprimer.ExecuteNonQuery();
@@ -660,6 +658,79 @@ namespace Plan_Canicule
             {
                 MessageBox.Show("Veuillez entrer un numéro de téléphone valide");
             }
+        }
+
+        private void B_ListeAppel_Click(object sender, EventArgs e)
+        {
+            //Datagrid
+            dataGridView2.Visible = false;
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            //Label
+            LabelID.Visible = false;
+            LabelNom.Visible = false;
+            LabelPrenom.Visible = false;
+            LabelTel.Visible = false;
+            LabelContact.Visible = false;
+            LabelQualite.Visible = false;
+            LabelConfirmer.Visible = false;
+            LabelSexe.Visible = false;
+            LabelAdresse.Visible = false;
+            LabelVille.Visible = false;
+            LabelPostal.Visible = false;
+            LabelSituation.Visible = false;
+            LabelDate.Visible = false;
+            LabelRisque.Visible = false;
+
+            //textbox
+            BoxID.Visible = false;
+            BoxSexe.Visible = false;
+            BoxNom.Visible = false;
+            BoxPrenom.Visible = false;
+            BoxDate.Visible = false;
+            BoxAdresse.Visible = false;
+            BoxPostal.Visible = false;
+            BoxVille.Visible = false;
+            BoxTel.Visible = false;
+            BoxSituation.Visible = false;
+            BoxRisque.Visible = false;
+            BoxConfirmer.Visible = false;
+            BoxIDContact.Visible = false;
+            BoxQualite.Visible = false;
+            Box_Commentaire.Visible = false;
+
+            //boutons
+            B_EnvoyerContact.Visible = false;
+            B_EnvoyerResident.Visible = false;
+            B_AppelP.Visible = false;
+            B_AppelC.Visible = false;
+            B_SupprimerP.Visible = false;
+            B_SupprimerContact.Visible = false;
+
+            //DatagridView2
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridView1.Visible = true;
+            dataGridView1.ColumnCount = 5;
+            dataGridView1.Columns[0].Name = "ID Personne";
+            dataGridView1.Columns[1].Name = "Nom Personne";
+            dataGridView1.Columns[2].Name = "Prenom Personne";
+            dataGridView1.Columns[3].Name = "Date Appel";
+            dataGridView1.Columns[4].Name = "Commentaire appel";
+            string commande = "select personne_a_risques.ID, personne_a_risques.NOM, personne_a_risques.Prenom, appel.Date, appel.Commentaire from personne_a_risques left join appel on personne_a_risques.ID = appel.ID_PERSONNE ORDER BY personne_a_risques.ID";
+            MySqlCommand AfficherContact = new MySqlCommand(commande, connexion); //commande sql pour afficher les resultats
+            connexion.Open();
+            MySqlDataReader reader; //recupere les resultats pour les affecter dans une variable et les afficher
+            reader = AfficherContact.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString());
+                }
+
+            }
+            connexion.Close();
         }
     }
 }

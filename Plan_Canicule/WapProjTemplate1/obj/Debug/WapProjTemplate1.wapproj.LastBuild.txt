@@ -1,0 +1,13 @@
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\SplashScreen.scale-200.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\LockScreenLogo.scale-200.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\Square150x150Logo.scale-200.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\Square44x44Logo.scale-200.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\Square44x44Logo.targetsize-24_altform-unplated.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\StoreLogo.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\Images\Wide310x150Logo.scale-200.png
+C:\Users\mehdi\source\repos\Plan_Canicule\WapProjTemplate1\bin\AnyCPU\Debug\resources.pri
+C:\Users\mehdi\Downloads\MySql.Data.dll
+C:\Users\mehdi\Downloads\MySql.Web.dll
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\Plan_Canicule.exe
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\Plan_Canicule.exe.config
+C:\Users\mehdi\source\repos\Plan_Canicule\Plan_Canicule\bin\Debug\Plan_Canicule.pdb
